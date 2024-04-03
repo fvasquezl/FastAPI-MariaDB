@@ -8,7 +8,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String(50), unique=True)
-    email = Column(String(60), unique=True, index=True)
+    email = Column(String(70), unique=True, index=True)
     password = Column(String(30))
 
     # Definimos la relación uno a muchos con las publicaciones de blog

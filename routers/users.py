@@ -6,7 +6,7 @@ from models import User as UserModel
 from schemas import user as UserSchema
 
 
-user_router = APIRouter()
+router = APIRouter()
 
 
 def get_db():
@@ -20,7 +20,7 @@ def get_db():
 db_dependency = Annotated[SessionLocal, Depends(get_db)]
 
 
-@user_router.post("/users/", response_model=UserSchema.User)
+@router.post("/users/", response_model=UserSchema.User)
 async def create_user(user: UserSchema.UserCreate, db: db_dependency):  # type: ignore
     db_user = UserModel(
         username=user.username, email=user.email, password=user.password
